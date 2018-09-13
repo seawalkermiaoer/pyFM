@@ -173,7 +173,7 @@ cdef class FM_fast(object):
                 sum_[f] += d
                 sum_sqr_[f] += d*d
             result += 0.5 * (sum_[f] * sum_[f] - sum_sqr_[f])
-
+        print(result)
         # pass sum to sgd_theta
         self.sum = sum_
         return result
