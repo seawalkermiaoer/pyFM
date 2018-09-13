@@ -161,11 +161,13 @@ cdef class FM_fast(object):
         if self.k0 > 0:
             result += w0
         print(result)
+        print("1111111111111111111111111111111111")
         if self.k1 > 0:
             for i in range(xnnz):
                 feature = x_ind_ptr[i]
                 result += w[feature] * x_data_ptr[i]
         print(result)
+        print("222222222222222222222222222222222")
         for f in range(self.num_factors):
             sum_[f] = 0.0
             sum_sqr_[f] = 0.0
@@ -174,6 +176,8 @@ cdef class FM_fast(object):
                 d = v[f, feature] * x_data_ptr[i]
                 sum_[f] += d
                 sum_sqr_[f] += d*d
+            print(sum_[f])
+            print(sum_sqr_[f])
             result += 0.5 * (sum_[f] * sum_[f] - sum_sqr_[f])
         print(result)
         # pass sum to sgd_theta
