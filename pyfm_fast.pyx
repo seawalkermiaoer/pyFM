@@ -160,10 +160,12 @@ cdef class FM_fast(object):
 
         if self.k0 > 0:
             result += w0
+        print(result)
         if self.k1 > 0:
             for i in range(xnnz):
                 feature = x_ind_ptr[i]
                 result += w[feature] * x_data_ptr[i]
+        print(result)
         for f in range(self.num_factors):
             sum_[f] = 0.0
             sum_sqr_[f] = 0.0
